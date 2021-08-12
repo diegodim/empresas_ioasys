@@ -1,4 +1,4 @@
-package com.diego.duarte.repository
+package com.diego.duarte.domain.repository
 
 import kotlinx.coroutines.flow.Flow
 
