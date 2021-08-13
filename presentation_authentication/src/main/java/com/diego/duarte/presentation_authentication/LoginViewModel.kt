@@ -1,6 +1,7 @@
 package com.diego.duarte.presentation_authentication
 
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.diego.duarte.base_presentation.utils.extensions.*
 import com.diego.duarte.domain.usecase.Login
@@ -21,7 +22,10 @@ class LoginViewModel : ViewModel(), KoinComponent {
                 email,
                 password
             ),
-            onSuccess = { _loginState.postSuccess(it) },
+            onSuccess = {
+                Log.v("TEST","TEST")
+                _loginState.postSuccess(it)
+                        },
             onError = { _loginState.postError(it) }
         )
     }

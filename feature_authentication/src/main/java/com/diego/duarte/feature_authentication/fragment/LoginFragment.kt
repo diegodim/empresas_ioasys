@@ -59,7 +59,6 @@ class LoginFragment : BaseFragment() {
             onSuccess = {
                 binding.loginButton.isEnabled = true
                 hideLoading()
-                viewModel.clearState()
                 navigation.navigateToMain()
             },
             onError = {
@@ -82,6 +81,12 @@ class LoginFragment : BaseFragment() {
             requireActivity().finish()
         }
         handleWithLogin(owner)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.clearState()
+
     }
 
 }
