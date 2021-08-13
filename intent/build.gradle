@@ -15,10 +15,11 @@ android {
 }
 
 dependencies {
-    implementation project(':base_presentation')
-    implementation project(':base_feature')
+    api project(':base_presentation')
+    api project(':base_feature')
 
-    implementation project(':feature_authentication')
-    implementation project(':feature_main')
+    api project(':feature_authentication')
+    api project(':feature_main')
+
     appDependencies.each { add(it.configuration, it.dependency, it.options) }
 }

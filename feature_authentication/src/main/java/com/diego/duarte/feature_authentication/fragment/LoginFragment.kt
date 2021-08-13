@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.LifecycleOwner
 import com.diego.duarte.base_feature.core.BaseFragment
+import com.diego.duarte.base_feature.utils.delegateproperties.navDirections
 import com.diego.duarte.base_feature.utils.delegateproperties.viewInflateBinding
 import com.diego.duarte.base_feature.utils.extensions.addOnBackPressedCallback
 import com.diego.duarte.feature_authentication.databinding.FragmentLoginBinding
+import com.diego.duarte.feature_authentication.navigation.LoginNavigation
 import com.diego.duarte.presentation_authentication.LoginViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -16,6 +18,7 @@ class LoginFragment : BaseFragment() {
 
     private val viewModel: LoginViewModel by viewModel()
     private val binding by viewInflateBinding(FragmentLoginBinding::inflate)
+    private val navigation: LoginNavigation by navDirections()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,6 +59,7 @@ class LoginFragment : BaseFragment() {
             onSuccess = {
                 binding.loginButton.isEnabled = true
                 hideLoading()
+                navigation.navigateToMain()
             },
             onError = {
                 binding.loginButton.isEnabled = true
