@@ -3,12 +3,13 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
-    id "androidx.navigation.safeargs"
 }
 
 apply from: "$rootProject.projectDir/android-common.gradle"
 android {
-
+    viewBinding {
+        enabled = true
+    }
     defaultConfig {
         consumerProguardFiles "consumer-rules.pro"
     }

@@ -1,8 +1,6 @@
 android {
     compileSdk 31
-    viewBinding {
-        enabled = true
-    }
+
     defaultConfig {
         minSdk 21
         targetSdk 31

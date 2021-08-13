@@ -59,6 +59,7 @@ class LoginFragment : BaseFragment() {
             onSuccess = {
                 binding.loginButton.isEnabled = true
                 hideLoading()
+                viewModel.clearState()
                 navigation.navigateToMain()
             },
             onError = {
@@ -67,6 +68,8 @@ class LoginFragment : BaseFragment() {
             }
         )
     }
+
+
 
     private fun handleLoginError(throwable: Throwable) {
         binding.editTextEmail.error = " "

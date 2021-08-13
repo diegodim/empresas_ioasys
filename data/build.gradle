@@ -3,7 +3,6 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
-    id "androidx.navigation.safeargs"
 }
 
 apply from: "$rootProject.projectDir/android-common.gradle"
@@ -15,6 +14,6 @@ android {
 }
 
 dependencies {
-    implementation project(':domain')
+    api project(':domain')
     appDependencies.each { add(it.configuration, it.dependency, it.options) }
 }

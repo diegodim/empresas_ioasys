@@ -9,7 +9,8 @@
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_main_navigation"
-            app:destination="@id/main_navigation" />
+            app:destination="@id/main_navigation"
+            app:launchSingleTop="true" />
     </fragment>
     <include app:graph="@navigation/main_navigation" />
 </navigation>
