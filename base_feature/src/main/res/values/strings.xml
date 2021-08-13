@@ -1,3 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Empresas</string>
+
+    <string name="error_message_login">Credenciais informadas são inválidas, tente novamente.</string>
+    <string name="error_message_internet">Sem conexão com internet.</string>
+
+    <string name="content_txt_welcome">BEM-VINDO AO EMPRESAS</string>
+    <string name="content_image_logo">Logo IOasys</string>
+    <string name="content_login_description">Lorem ipsum dolor sit amet, contetur adipiscing elit. Nunc accumsan.</string>
+    <string name="content_image_item">Imagem da empresa.</string>
+    <string name="content_txt_name">Empresa</string>
+    <string name="content_txt_type">Negócio</string>
+    <string name="content_txt_country">Brasil</string>
+    <string name="content_txt_email">E-mail</string>
+    <string name="content_txt_password">Senha</string>
+    <string name="content_button_enter">ENTRAR</string>
+    <string name="content_image_toolbar">Toolbar Logo</string>
+    <string name="content_search_view">Search</string>
+    <string name="content_txt_home">Clique na busca para iniciar.</string>
+    <string name="content_txt_search_empty">
+        Nenhuma empresa foi encontrada para a busca realizada.
+    </string>
+    <string name="content_txt_enterprise_description">Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </string>
+
+    <string name="url_image">https://empresas.ioasys.com.br</string>
 </resources>

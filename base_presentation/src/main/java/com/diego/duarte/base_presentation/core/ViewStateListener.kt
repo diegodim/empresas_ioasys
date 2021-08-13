@@ -11,6 +11,8 @@ interface ViewStateListener {
 
     fun onStateLoading()
 
+    fun hideLoading()
+
     private fun <T> ViewState<T>.handle(
         onError: ((Throwable) -> Unit)? = null,
         onLoading: (() -> Unit)? = null,

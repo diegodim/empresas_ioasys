@@ -1,3 +1,10 @@
 package com.diego.duarte.domain.model
 
-data class EnterpriseType()
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+
+data class EnterpriseType(
+    val id: Int = 0,
+    val enterpriseTypeName: String? = ""
+)

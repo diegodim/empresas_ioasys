@@ -1,0 +1,28 @@
+ext {
+    appDependencies = [
+            [configuration: "implementation", dependency: "$androidKtxCore"],
+            [configuration: "implementation", dependency: "$appCompat"],
+            [configuration: "implementation", dependency: "$material"],
+            [configuration: "implementation", dependency: "$constraintLayout"],
+            [configuration: "implementation", dependency: "$koinAndroid"],
+            [configuration: "implementation", dependency: "$koinCore"],
+            [configuration: "implementation", dependency: "$navigationFragment"],
+            [configuration: "implementation", dependency: "$navigatioUi"],
+            [configuration: "implementation", dependency: "$lifecycleCommon"],
+            [configuration: "implementation", dependency: "$lifecycleViewModel"],
+            [configuration: "implementation", dependency: "$coroutinesAndroid"],
+            [configuration: "implementation", dependency: "$coroutinesCore"],
+            [configuration: "implementation", dependency: "$retrofit"],
+            [configuration: "implementation", dependency: "$gson"],
+            [configuration: "implementation", dependency: "$okhttp"],
+            [configuration: "implementation", dependency: "$okhttpInterceptor"],
+            [configuration: "implementation", dependency: "$livedata"],
+            [configuration: "implementation", dependency: "$viewmodel"],
+            [configuration: "testImplementation", dependency: "$jUnit4"],
+            [configuration: "testImplementation", dependency: "$coreTesting"],
+            [configuration: "testImplementation", dependency: "$mockk"],
+            [configuration: "androidTestImplementation", dependency: "$jUnit"],
+            [configuration: "androidTestImplementation", dependency: "$espresso"],
+
+    ]
+}

@@ -1,8 +1,9 @@
 package com.diego.duarte.empresas
 
 import android.app.Application
-import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
+import com.diego.duarte.di.*
+import org.koin.android.ext.koin.androidContext
 
 class BaseApplication: Application() {
 
@@ -13,6 +14,13 @@ class BaseApplication: Application() {
 
         startKoin {
             modules(
+                listOf(
+                    presentationModule,
+                    domainModule,
+                    dataModule,
+                    dataRemoteModule,
+                    dataLocalModule
+                )
 
             ).androidContext(applicationContext)
         }

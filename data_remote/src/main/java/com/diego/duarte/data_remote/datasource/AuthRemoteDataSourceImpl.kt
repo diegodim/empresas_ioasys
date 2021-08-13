@@ -1,15 +1,18 @@
 package com.diego.duarte.data_remote.datasource
 
-import com.diego.duarte.data.LoginRemoteDataSource
+import com.diego.duarte.data.AuthRemoteDataSource
 import com.diego.duarte.data_remote.mapper.TokenResponseMapper
 import com.diego.duarte.data_remote.model.TokenResponse
 import com.diego.duarte.data_remote.service.LoginService
+import com.diego.duarte.domain.exeption.CredentialException
+import com.diego.duarte.domain.exeption.InvalidCredentialException
+import com.diego.duarte.domain.exeption.MissingParamsException
 import kotlinx.coroutines.flow.flow
 import org.koin.core.component.KoinComponent
 
-class LoginRemoteDataSourceImpl(private val loginService: LoginService): LoginRemoteDataSource,
+class AuthRemoteDataSourceImpl(private val loginService: LoginService): AuthRemoteDataSource,
     KoinComponent {
-
+    
     override fun login(email: String, password:String) = flow {
         val response = loginService.login(email, password)
         if(response.isSuccessful){
@@ -23,5 +26,8 @@ class LoginRemoteDataSourceImpl(private val loginService: LoginService): LoginRe
                 TokenResponseMapper().toDomain(token)
             )
         }
+        else
+            emit(throw InvalidCredentialException())
+
     }
 }

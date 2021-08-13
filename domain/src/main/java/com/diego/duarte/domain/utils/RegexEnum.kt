@@ -1,4 +1,4 @@
-package com.diego.duarte.base_presentation.utils
+package com.diego.duarte.domain.utils
 
 enum class RegexEnum(val value: Regex) {
     PASSWORD("""(\d{6})""".toRegex()),

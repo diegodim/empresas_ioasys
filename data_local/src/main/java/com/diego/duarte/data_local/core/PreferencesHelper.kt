@@ -1,4 +1,4 @@
-package com.diego.duarte.data_local
+package com.diego.duarte.data_local.core
 
 import android.content.Context
 
