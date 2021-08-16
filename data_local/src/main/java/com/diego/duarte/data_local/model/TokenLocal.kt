@@ -1,4 +1,7 @@
-package com.diego.duarte.data_local
+package com.diego.duarte.data_local.model
 
-class TokenLocal {
-}
+data class TokenLocal(
+    var accessToken: String? = "",
+    var uid: String? = "",
+    var client: String ?= ""
+)

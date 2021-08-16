@@ -1,8 +1,9 @@
 package com.diego.duarte.data
 
-import com.diego.duarte.data_local.model.TokenLocal
+import com.diego.duarte.domain.model.Token
 
-interface SessionLocalDataSourceI {
+
+interface SessionLocalDataSource {
 
     companion object {
 
@@ -12,7 +13,7 @@ interface SessionLocalDataSourceI {
 
     }
 
-    fun saveToken(token: TokenLocal)
-    fun getToken(): TokenLocal
+    fun saveToken(token: Token)
+    fun getToken(): Token?
     fun deleteToken()
 }

@@ -3,7 +3,7 @@ package com.diego.duarte.base_presentation.core
 class ViewState<T>(
     val status: Status = Status.NEUTRAL,
     val data: T? = null,
-    private val error: Throwable? = null
+    val error: Throwable? = null
 ) {
 
     fun stateHandler(
@@ -15,8 +15,7 @@ class ViewState<T>(
             Status.SUCCESS -> data?.let { onSuccess(it) } ?: throw RuntimeException()
             Status.ERROR -> error?.let { onError(it) } ?: throw RuntimeException()
             Status.LOADING -> loading()
-            else -> {
-            }
+            else -> Unit
         }
     }
 
@@ -28,3 +27,5 @@ class ViewState<T>(
 
 fun <T> ViewState<T>?.isSuccess() = this?.status?.equals(ViewState.Status.SUCCESS) ?: false
 fun <T> ViewState<T>?.isError() = this?.status?.equals(ViewState.Status.ERROR) ?: false
+fun <T> ViewState<T>?.isLoading() = this?.status?.equals(ViewState.Status.LOADING) ?: false
+fun <T> ViewState<T>?.isNeutral() = this?.status?.equals(ViewState.Status.NEUTRAL) ?: false

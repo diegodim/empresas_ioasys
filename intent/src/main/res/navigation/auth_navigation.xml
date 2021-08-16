@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_navigation">
-
+    android:id="@+id/auth_navigation"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.diego.duarte.feature_authentication.fragment.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_main_navigation"
+            app:destination="@id/main_navigation"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/auth_navigation"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <include app:graph="@navigation/main_navigation" />
 </navigation>

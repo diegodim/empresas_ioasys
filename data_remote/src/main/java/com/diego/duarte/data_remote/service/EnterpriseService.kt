@@ -1,19 +1,16 @@
 package com.diego.duarte.data_remote.service
 
+import com.diego.duarte.data_remote.model.EnterprisesResponse
 import retrofit2.Response
+import retrofit2.http.GET
+import retrofit2.http.Query
 
-interface Enterprise {
+interface EnterpriseService {
 
     // Search enterprise api interface
     @GET("enterprises")
-    fun getEnterprise(
+    suspend fun getEnterprise(
         @Query("name") name: String
     ): Response<EnterprisesResponse>
-
-    // Get a enterprise by id api interface
-    @GET("enterprises/{enterprise}")
-    fun getEnterprise(
-        @Path("enterprise") enterpriseId: Int
-    ): Observable<Response<Enterprise>>
 
 }

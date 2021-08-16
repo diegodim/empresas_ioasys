@@ -1,6 +1,8 @@
 package com.diego.duarte.base_presentation.utils
 
+
 import androidx.lifecycle.MutableLiveData
+
 
 class EventLiveData<T> : MutableLiveData<T>() {
 

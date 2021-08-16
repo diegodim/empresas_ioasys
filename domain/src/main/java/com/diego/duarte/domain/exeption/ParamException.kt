@@ -1,4 +1,4 @@
-package com.dexapp.domain.exception
+package com.diego.duarte.domain.exeption
 
 /*
  * Created by Filipi Andrade Rocha on 19/01/2021.
