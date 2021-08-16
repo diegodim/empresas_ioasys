@@ -10,7 +10,9 @@
         <action
             android:id="@+id/action_loginFragment_to_main_navigation"
             app:destination="@id/main_navigation"
-            app:launchSingleTop="true" />
+            app:launchSingleTop="true"
+            app:popUpTo="@id/auth_navigation"
+            app:popUpToInclusive="true" />
     </fragment>
     <include app:graph="@navigation/main_navigation" />
 </navigation>

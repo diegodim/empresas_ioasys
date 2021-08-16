@@ -3,8 +3,13 @@ package com.diego.duarte.base_feature.core
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
+import com.diego.duarte.base_feature.R
 import com.diego.duarte.base_feature.dialog.LoadingDialog
 import com.diego.duarte.base_presentation.core.ViewStateListener
 
@@ -35,6 +40,8 @@ abstract class BaseFragment : Fragment(), ViewStateListener, KoinComponent {
     override fun hideLoading() {
         loadingDialog.dismiss()
     }
+
+
 
 
     protected open fun observeEvents(owner: LifecycleOwner) = Unit

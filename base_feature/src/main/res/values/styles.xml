@@ -59,4 +59,9 @@
         <item name="colorPrimary">@color/teal_200</item>
         <item name="colorPrimaryVariant">@color/warm_grey</item>
     </style>
+
+    <style name="ThemeSearchView">
+        <item name="android:editTextColor">@color/white</item>
+        <item name="editTextColor">@color/white</item>
+    </style>
 </resources>
