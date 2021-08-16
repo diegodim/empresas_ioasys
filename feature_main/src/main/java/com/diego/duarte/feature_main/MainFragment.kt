@@ -13,12 +13,19 @@ import com.diego.duarte.feature_main.databinding.FragmentMainBinding
 import android.widget.EditText
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat.getColor
+import com.diego.duarte.presentation_main.MainViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class MainFragment : BaseFragment() {
 
+    private val viewModel: MainViewModel by viewModel()
+
     private val binding by viewInflateBinding(FragmentMainBinding::inflate)
+
     private lateinit var searchView: SearchView
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
