@@ -4,7 +4,7 @@ import com.diego.duarte.data_remote.model.LoginResponse
 import retrofit2.Response
 import retrofit2.http.*
 
-interface LoginService {
+interface AuthService {
 
     // Login api interface
     @POST("users/auth/sign_in")
