@@ -1,9 +1,9 @@
 package com.diego.duarte.data_local.datasource
 
-import com.diego.duarte.data.SessionLocalDataSource
-import com.diego.duarte.data.SessionLocalDataSource.Companion.ACCESS_TOKEN
-import com.diego.duarte.data.SessionLocalDataSource.Companion.CLIENT
-import com.diego.duarte.data.SessionLocalDataSource.Companion.UID
+import com.diego.duarte.data.datasource.local.SessionLocalDataSource
+import com.diego.duarte.data.datasource.local.SessionLocalDataSource.Companion.ACCESS_TOKEN
+import com.diego.duarte.data.datasource.local.SessionLocalDataSource.Companion.CLIENT
+import com.diego.duarte.data.datasource.local.SessionLocalDataSource.Companion.UID
 import com.diego.duarte.data_local.core.PreferencesHelper
 import com.diego.duarte.data_local.mapper.TokenLocalMapper
 import com.diego.duarte.data_local.model.TokenLocal

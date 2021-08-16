@@ -1,6 +1,6 @@
 package com.diego.duarte.data_remote.datasource
 
-import com.diego.duarte.data.AuthRemoteDataSource
+import com.diego.duarte.data.datasource.remote.AuthRemoteDataSource
 import com.diego.duarte.data_remote.mapper.TokenResponseMapper
 import com.diego.duarte.data_remote.model.TokenResponse
 import com.diego.duarte.data_remote.service.AuthService
