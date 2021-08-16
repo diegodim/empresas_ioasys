@@ -17,6 +17,8 @@ ext {
             [configuration: "implementation", dependency: "$okhttp"],
             [configuration: "implementation", dependency: "$okhttpInterceptor"],
             [configuration: "implementation", dependency: "$livedata"],
+            [configuration: "implementation", dependency: "$glide"],
+            [configuration: "implementation", dependency: "$glideCompiler"],
             [configuration: "implementation", dependency: "$viewmodel"],
             [configuration: "testImplementation", dependency: "$jUnit4"],
             [configuration: "testImplementation", dependency: "$coreTesting"],
