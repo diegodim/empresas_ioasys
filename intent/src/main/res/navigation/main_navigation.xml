@@ -7,5 +7,17 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.diego.duarte.feature_main.fragment.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_enterpriseFragment"
+            app:destination="@id/enterpriseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterpriseFragment"
+        android:name="com.diego.duarte.feature_main.fragment.EnterpriseFragment"
+        android:label="EnterpriseFragment" >
+        <argument
+            android:name="enterprise"
+            app:argType="com.diego.duarte.base_presentation.model.EnterpriseBinding" />
+    </fragment>
 </navigation>

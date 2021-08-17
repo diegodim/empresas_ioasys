@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import com.diego.duarte.base_presentation.mapper.EnterpriseBindingMapper
 import com.diego.duarte.base_presentation.model.EnterpriseBinding
 import com.diego.duarte.base_presentation.utils.extensions.*
-import com.diego.duarte.domain.model.Enterprise
 import com.diego.duarte.domain.usecase.Search
 import org.koin.core.component.KoinComponent
 
@@ -16,20 +15,30 @@ class MainViewModel: ViewModel(), KoinComponent {
 
     val searchEnterpriseViewState = _searchEnterpriseState.asLiveData()
 
-    fun search(key: String){
-        search(
-            params = Search.Params(
-                key
-            ),
-            onSuccess = {
-                _searchEnterpriseState.postSuccess(EnterpriseBindingMapper().fromDomain(it))
-            },
-            onError = {
-                _searchEnterpriseState.postError(it)
-            }
-        )
+
+    private var currentQuery = ""
+
+
+    fun search(query: String) {
+        currentQuery = query
+        if (query.length > 1) {
+            search(
+                params = Search.Params(
+                    query
+                ),
+                onSuccess = {
+                    _searchEnterpriseState.postSuccess(EnterpriseBindingMapper().fromDomain(it))
+                },
+                onError = {
+                    _searchEnterpriseState.postError(it)
+                }
+            )
+        }
+        else _searchEnterpriseState.postSuccess(listOf<EnterpriseBinding>())
     }
     fun clearState() {
         _searchEnterpriseState.postNeutral()
     }
+
+    fun getCurrentQuery() = currentQuery
 }

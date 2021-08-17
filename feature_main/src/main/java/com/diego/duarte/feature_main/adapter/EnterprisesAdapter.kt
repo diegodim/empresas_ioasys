@@ -24,7 +24,7 @@ class EnterprisesAdapter(val clickListener: (enterprise: EnterpriseBinding) -> U
                 text_country.text = enterprise.country
                 text_name.text = enterprise.enterpriseName
                 text_type.text = enterprise.enterpriseType.enterpriseTypeName
-                setOnClickListener { clickListener(enterprise) }
+                card.setOnClickListener { clickListener(enterprise) }
             }
         }
 
