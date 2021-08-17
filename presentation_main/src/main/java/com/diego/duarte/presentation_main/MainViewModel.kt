@@ -16,12 +16,12 @@ class MainViewModel: ViewModel(), KoinComponent {
     val searchEnterpriseViewState = _searchEnterpriseState.asLiveData()
 
 
-    private var currentQuery = ""
+    private var currentQuery: String? = null
 
 
     fun search(query: String) {
         currentQuery = query
-        if (query.length > 1) {
+        if (query.isNotEmpty()) {
             search(
                 params = Search.Params(
                     query
@@ -35,9 +35,6 @@ class MainViewModel: ViewModel(), KoinComponent {
             )
         }
         else _searchEnterpriseState.postSuccess(listOf<EnterpriseBinding>())
-    }
-    fun clearState() {
-        _searchEnterpriseState.postNeutral()
     }
 
     fun getCurrentQuery() = currentQuery

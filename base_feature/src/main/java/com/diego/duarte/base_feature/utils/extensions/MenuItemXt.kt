@@ -6,11 +6,12 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat.getColor
 import com.diego.duarte.base_feature.R
 import com.diego.duarte.base_feature.RestorableSearchView
+import com.diego.duarte.base_presentation.utils.extensions.isNull
 
 
 fun MenuItem.setupSearchView(
     hint: String,
-    query: String,
+    query: String?,
     onQueryTextChange: (query: String) -> Unit,
     onMenuCollapsed: () -> Unit,
     onMenuExpanded: () -> Unit) {
@@ -49,8 +50,9 @@ fun MenuItem.setupSearchView(
         }
     })
 
-    if (query.isNotEmpty()) {
+    if (!query.isNull()) {
         expandActionView()
+        menuSearchView.clearFocus()
     }
 
 
