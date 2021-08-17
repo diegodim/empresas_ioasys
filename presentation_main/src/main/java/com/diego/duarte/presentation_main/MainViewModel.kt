@@ -1,6 +1,8 @@
 package com.diego.duarte.presentation_main
 
 import androidx.lifecycle.ViewModel
+import com.diego.duarte.base_presentation.mapper.EnterpriseBindingMapper
+import com.diego.duarte.base_presentation.model.EnterpriseBinding
 import com.diego.duarte.base_presentation.utils.extensions.*
 import com.diego.duarte.domain.model.Enterprise
 import com.diego.duarte.domain.usecase.Search
@@ -10,9 +12,9 @@ class MainViewModel: ViewModel(), KoinComponent {
 
     private val search: Search by useCase()
 
-    private val _searchState by viewState<List<Enterprise>>()
+    private val _searchEnterpriseState by viewState<List<EnterpriseBinding>>()
 
-    val searchViewState = _searchState.asLiveData()
+    val searchEnterpriseViewState = _searchEnterpriseState.asLiveData()
 
     fun search(key: String){
         search(
@@ -20,14 +22,14 @@ class MainViewModel: ViewModel(), KoinComponent {
                 key
             ),
             onSuccess = {
-                _searchState.postSuccess(it)
+                _searchEnterpriseState.postSuccess(EnterpriseBindingMapper().fromDomain(it))
             },
             onError = {
-                _searchState.postError(it)
+                _searchEnterpriseState.postError(it)
             }
         )
     }
     fun clearState() {
-        _searchState.postNeutral()
+        _searchEnterpriseState.postNeutral()
     }
 }

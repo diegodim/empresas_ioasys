@@ -12,6 +12,6 @@ data class EnterpriseBinding(
     val description: String? = "",
     val city: String? = "",
     val country: String? = "",
-    val enterpriseType: EnterpriseTypeBinding? = EnterpriseTypeBinding(0, "")
+    val enterpriseType: EnterpriseTypeBinding = EnterpriseTypeBinding(0, "")
 
 ) : Parcelable

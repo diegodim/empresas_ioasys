@@ -12,6 +12,6 @@ data class Enterprise(
     val description: String? = "",
     val city: String? = "",
     val country: String? = "",
-    val enterpriseType: EnterpriseType? = EnterpriseType(0, "")
+    val enterpriseType: EnterpriseType = EnterpriseType(0, "")
 
 )

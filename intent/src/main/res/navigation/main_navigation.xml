@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.diego.duarte.feature_main.MainFragment"
+        android:name="com.diego.duarte.feature_main.fragment.MainFragment"
         android:label="MainFragment" />
 </navigation>

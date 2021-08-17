@@ -1,18 +1,20 @@
-package com.diego.duarte.feature_main
+package com.diego.duarte.feature_main.fragment
 
-import android.os.Build
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.diego.duarte.base_feature.core.BaseFragment
 import com.diego.duarte.base_feature.utils.delegateproperties.viewInflateBinding
 import com.diego.duarte.feature_main.databinding.FragmentMainBinding
 import android.widget.EditText
-import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat.getColor
+import androidx.lifecycle.LifecycleOwner
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.diego.duarte.base_feature.utils.extensions.setInvisible
+import com.diego.duarte.base_feature.utils.extensions.setVisible
+import com.diego.duarte.feature_main.adapter.EnterprisesAdapter
+import com.diego.duarte.feature_main.R
 import com.diego.duarte.presentation_main.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -23,6 +25,8 @@ class MainFragment : BaseFragment() {
 
     private val binding by viewInflateBinding(FragmentMainBinding::inflate)
 
+
+    private lateinit var enterprisesAdapter: EnterprisesAdapter
     private lateinit var searchView: SearchView
 
 
@@ -33,11 +37,21 @@ class MainFragment : BaseFragment() {
 
     override fun setupView() {
         super.setupView()
+        enterprisesAdapter = EnterprisesAdapter {}
+
         binding.toolbar.also {
             (requireActivity() as? AppCompatActivity)?.apply {
                 setSupportActionBar(it)
             }
             setHasOptionsMenu(true)
+
+            binding.recyclerViewEnterprises.apply {
+                adapter = enterprisesAdapter
+                layoutManager = LinearLayoutManager(requireContext(),
+                    LinearLayoutManager.VERTICAL, false)
+
+
+            }
         }
     }
 
@@ -60,11 +74,18 @@ class MainFragment : BaseFragment() {
                         searchView.findViewById(androidx.appcompat.R.id.search_src_text) as EditText
                     searchEditText.setTextColor(getColor(requireContext(), R.color.white))
 
+                    enterprisesAdapter.items.clear()
+                    binding.layoutSearchEmpty.setInvisible()
+                    binding.layoutWelcome.setInvisible()
+                    binding.recyclerViewEnterprises.setVisible()
                     return true
                 }
 
                 override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
-
+                    enterprisesAdapter.items.clear()
+                    binding.recyclerViewEnterprises.setInvisible()
+                    binding.layoutSearchEmpty.setInvisible()
+                    binding.layoutWelcome.setVisible()
                     return true
                 }
             })
@@ -72,7 +93,7 @@ class MainFragment : BaseFragment() {
         setupSearchView()
     }
 
-    fun setupSearchView(){
+    private fun setupSearchView(){
 
         searchView.apply {
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -82,11 +103,37 @@ class MainFragment : BaseFragment() {
                 }
 
                 override fun onQueryTextChange(text: String): Boolean {
-
+                    if(text.isNotEmpty())
+                        viewModel.search(text)
                     return false
                 }
             })
         }
+
+    }
+
+    override fun observeEvents(owner: LifecycleOwner) {
+        super.observeEvents(owner)
+
+        viewModel.searchEnterpriseViewState.onPostValue(
+            lifecycleOwner = owner,
+            onSuccess = {
+                if(it.isNotEmpty()){
+
+                    binding.recyclerViewEnterprises.setVisible()
+                    binding.layoutSearchEmpty.setInvisible()
+                    binding.layoutWelcome.setInvisible()
+                }else{
+                    binding.recyclerViewEnterprises.setInvisible()
+                    binding.layoutSearchEmpty.setVisible()
+                }
+                enterprisesAdapter.items = it.toMutableList()
+
+            },
+            onError = {
+
+            }
+        )
 
     }
 

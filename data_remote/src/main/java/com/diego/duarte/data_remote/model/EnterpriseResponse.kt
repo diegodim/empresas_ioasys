@@ -15,6 +15,6 @@ data class EnterpriseResponse(
     val city: String = "",
     @SerializedName("country")
     val country: String = "",
-    @SerializedName("enterpriseType")
+    @SerializedName("enterprise_type")
     val enterpriseType: EnterpriseTypeResponse = EnterpriseTypeResponse(0, "")
 )

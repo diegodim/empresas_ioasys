@@ -17,4 +17,5 @@ class Search(private val repository: EnterpriseRepository, scope: CoroutineScope
         params == null -> throw MissingParamsException()
         else -> repository.search(params.key)
     }
+
 }
