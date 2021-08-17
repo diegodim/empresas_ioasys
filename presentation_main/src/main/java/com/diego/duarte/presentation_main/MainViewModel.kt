@@ -36,6 +36,9 @@ class MainViewModel: ViewModel(), KoinComponent {
         }
         else _searchEnterpriseState.postSuccess(listOf<EnterpriseBinding>())
     }
+    fun clearState() {
+        _searchEnterpriseState.postNeutral()
+    }
 
     fun getCurrentQuery() = currentQuery
 }

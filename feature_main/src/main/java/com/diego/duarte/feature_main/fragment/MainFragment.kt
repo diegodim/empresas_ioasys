@@ -43,17 +43,17 @@ class MainFragment : BaseFragment() {
         enterprisesAdapter = EnterprisesAdapter {
             navigation.navigateToEnterprise(it)
         }
-
-        binding.mainToolbar.also {
-            (requireActivity() as? AppCompatActivity)?.apply {
-                setSupportActionBar(it)
-            }
-            setHasOptionsMenu(true)
-
-            binding.mainRecyclerViewEnterprises.apply {
+        binding.apply{
+            mainRecyclerViewEnterprises.apply {
                 adapter = enterprisesAdapter
                 layoutManager = LinearLayoutManager(requireContext(),
                     LinearLayoutManager.VERTICAL, false)
+            }
+            mainToolbar.also {
+                (requireActivity() as? AppCompatActivity)?.apply {
+                    setSupportActionBar(it)
+                }
+                setHasOptionsMenu(true)
             }
         }
     }
@@ -81,7 +81,6 @@ class MainFragment : BaseFragment() {
             {
                 binding.mainLayoutSearchEmpty.setInvisible()
                 binding.mainLayoutWelcome.setInvisible()
-                binding.mainRecyclerViewEnterprises.setVisible()
             }
         )
     }
@@ -99,6 +98,7 @@ class MainFragment : BaseFragment() {
                     binding.mainRecyclerViewEnterprises.setVisible()
                     binding.mainLayoutSearchEmpty.setInvisible()
                     binding.mainLayoutWelcome.setInvisible()
+
                 }else{
                     binding.mainRecyclerViewEnterprises.setInvisible()
                     binding.mainLayoutWelcome.setInvisible()
@@ -109,5 +109,6 @@ class MainFragment : BaseFragment() {
             }
         )
     }
+
 
 }

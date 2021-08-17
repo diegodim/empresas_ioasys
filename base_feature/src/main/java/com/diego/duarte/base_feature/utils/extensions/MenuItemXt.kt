@@ -46,6 +46,7 @@ fun MenuItem.setupSearchView(
 
         override fun onMenuItemActionCollapse(p0: MenuItem?): Boolean {
             onMenuCollapsed()
+            menuSearchView?.setQuery("", false)
             return true
         }
     })
