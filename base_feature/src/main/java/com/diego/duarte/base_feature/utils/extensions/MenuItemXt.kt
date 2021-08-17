@@ -13,9 +13,8 @@ fun MenuItem.setupSearchView(
     query: String,
     onQueryTextChange: (query: String) -> Unit,
     onMenuCollapsed: () -> Unit,
-    onMenuExpanded: () -> Unit
+    onMenuExpanded: () -> Unit) {
 
-) {
     val menuSearchView = actionView as? RestorableSearchView
 
     val searchEditText =
@@ -51,7 +50,6 @@ fun MenuItem.setupSearchView(
     })
 
     if (query.isNotEmpty()) {
-
         expandActionView()
     }
 

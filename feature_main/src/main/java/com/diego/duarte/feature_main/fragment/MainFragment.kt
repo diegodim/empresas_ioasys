@@ -99,10 +99,15 @@ class MainFragment : BaseFragment() {
                     binding.mainRecyclerViewEnterprises.setVisible()
                     binding.mainLayoutSearchEmpty.setInvisible()
                     binding.mainLayoutWelcome.setInvisible()
-                }else{
+                }else if (viewModel.getCurrentQuery().isNotEmpty()){
                     binding.mainRecyclerViewEnterprises.setInvisible()
                     binding.mainLayoutWelcome.setInvisible()
                     binding.mainLayoutSearchEmpty.setVisible()
+                }
+                else{
+                    binding.mainRecyclerViewEnterprises.setInvisible()
+                    binding.mainLayoutWelcome.setInvisible()
+                    binding.mainLayoutSearchEmpty.setInvisible()
                 }
                 enterprisesAdapter.items = it.toMutableList()
             }
