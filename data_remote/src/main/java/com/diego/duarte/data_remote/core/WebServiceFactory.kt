@@ -1,6 +1,6 @@
 package com.diego.duarte.data_remote.core
 
-import com.diego.duarte.data.SessionLocalDataSource
+import com.diego.duarte.data.datasource.local.SessionLocalDataSource
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

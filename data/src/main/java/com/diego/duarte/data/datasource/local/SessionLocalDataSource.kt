@@ -1,4 +1,4 @@
-package com.diego.duarte.data
+package com.diego.duarte.data.datasource.local
 
 import com.diego.duarte.domain.model.Token
 

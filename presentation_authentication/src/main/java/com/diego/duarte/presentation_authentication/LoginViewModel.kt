@@ -23,7 +23,6 @@ class LoginViewModel : ViewModel(), KoinComponent {
                 password
             ),
             onSuccess = {
-                Log.v("TEST","TEST")
                 _loginState.postSuccess(it)
                         },
             onError = { _loginState.postError(it) }

@@ -17,7 +17,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class LoginFragment : BaseFragment() {
 
     private val viewModel: LoginViewModel by viewModel()
+
     private val binding by viewInflateBinding(FragmentLoginBinding::inflate)
+
     private val navigation: LoginNavigation by navDirections()
 
     override fun onCreateView(

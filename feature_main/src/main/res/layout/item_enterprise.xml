@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="9.5dp"
-    android:layout_marginTop="9dp"
-    android:layout_marginEnd="19dp"
-    android:layout_marginBottom="9dp">
+    android:layout_marginStart="@dimen/spacing_small"
+    android:layout_marginTop="@dimen/spacing_small"
+    android:layout_marginEnd="@dimen/spacing_normal"
+    android:layout_marginBottom="@dimen/spacing_small">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
@@ -16,7 +15,8 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackgroundBorderless">
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        app:cardBackgroundColor="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -26,9 +26,9 @@
                 android:id="@+id/image_photo"
                 android:layout_width="105dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="11dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="9.5dp"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginBottom="@dimen/spacing_small"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/content_image_item"
                 android:scaleType="centerCrop"
@@ -42,9 +42,9 @@
                 style="@style/TextStyle8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="14.5dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginEnd="14.5dp"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal"
                 android:text="@{enterprise.enterpriseName}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/image_photo"
@@ -55,7 +55,7 @@
                 style="@style/TextStyle6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4.5dp"
+                android:layout_marginTop="@dimen/spacing_tiny"
                 android:text="@{enterprise.enterpriseType.enterpriseTypeName}"
                 app:layout_constraintStart_toStartOf="@id/text_name"
                 app:layout_constraintTop_toBottomOf="@id/text_name" />
@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1.5dp"
-                android:layout_marginBottom="9.5dp"
+                android:layout_marginBottom="@dimen/spacing_small"
                 android:text="@{enterprise.country}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/text_type"

@@ -8,6 +8,7 @@ val localePtBr = Locale("pt", "BR")
 
 fun String.isPassword() = RegexEnum.PASSWORD.match(this)
 fun String.isNotPassword() = !isPassword()
+fun String?.isNull() = this == null
 
 fun String.isCpf(): Boolean {
     if (this.length != 11) return false

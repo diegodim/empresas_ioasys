@@ -1,6 +1,6 @@
 package com.diego.duarte.di
 
-import com.diego.duarte.data.SessionLocalDataSource
+import com.diego.duarte.data.datasource.local.SessionLocalDataSource
 import com.diego.duarte.data_local.core.PreferencesHelper
 import com.diego.duarte.data_local.datasource.SessionLocalDataSourceImpl
 import org.koin.android.ext.koin.androidApplication
