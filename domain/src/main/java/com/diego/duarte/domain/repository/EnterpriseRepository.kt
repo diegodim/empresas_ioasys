@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface EnterpriseRepository {
 
-    fun search(key: String): Flow<List<Enterprise>>
+    fun search(query: String): Flow<List<Enterprise>>
 }

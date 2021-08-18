@@ -23,7 +23,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/image_photo"
+                android:id="@+id/enterprise_image_photo"
                 android:layout_width="105dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="@dimen/spacing_small"
@@ -47,7 +47,7 @@
                 android:layout_marginEnd="@dimen/spacing_normal"
                 android:text="@{enterprise.enterpriseName}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/image_photo"
+                app:layout_constraintStart_toEndOf="@id/enterprise_image_photo"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView

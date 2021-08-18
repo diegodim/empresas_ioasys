@@ -53,7 +53,6 @@ fun MenuItem.setupSearchView(
 
     if (!query.isNull()) {
         expandActionView()
-        menuSearchView.clearFocus()
     }
 
 
