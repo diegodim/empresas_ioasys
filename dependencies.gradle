@@ -23,6 +23,8 @@ ext {
             [configuration: "testImplementation", dependency: "$jUnit4"],
             [configuration: "testImplementation", dependency: "$coreTesting"],
             [configuration: "testImplementation", dependency: "$mockk"],
+            [configuration: "testImplementation", dependency: "$mockito"],
+            [configuration: "testImplementation", dependency: "$mockitoCore"],
             [configuration: "androidTestImplementation", dependency: "$jUnit"],
             [configuration: "androidTestImplementation", dependency: "$espresso"],
 
