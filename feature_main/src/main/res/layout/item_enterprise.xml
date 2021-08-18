@@ -23,7 +23,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/enterprise_image_photo"
+                android:id="@+id/item_enterprise_image_photo"
                 android:layout_width="105dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="@dimen/spacing_small"
@@ -38,7 +38,7 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/text_name"
+                android:id="@+id/item_enterprise_text_name"
                 style="@style/TextStyle8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -47,21 +47,21 @@
                 android:layout_marginEnd="@dimen/spacing_normal"
                 android:text="@{enterprise.enterpriseName}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/enterprise_image_photo"
+                app:layout_constraintStart_toEndOf="@id/item_enterprise_image_photo"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/text_type"
+                android:id="@+id/item_enterprise_text_type"
                 style="@style/TextStyle6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_tiny"
                 android:text="@{enterprise.enterpriseType.enterpriseTypeName}"
-                app:layout_constraintStart_toStartOf="@id/text_name"
-                app:layout_constraintTop_toBottomOf="@id/text_name" />
+                app:layout_constraintStart_toStartOf="@id/item_enterprise_text_name"
+                app:layout_constraintTop_toBottomOf="@id/item_enterprise_text_name" />
 
             <TextView
-                android:id="@+id/text_country"
+                android:id="@+id/item_enterprise_text_country"
                 style="@style/TextStyle7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,8 +69,8 @@
                 android:layout_marginBottom="@dimen/spacing_small"
                 android:text="@{enterprise.country}"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@id/text_type"
-                app:layout_constraintTop_toBottomOf="@id/text_type" />
+                app:layout_constraintStart_toStartOf="@id/item_enterprise_text_type"
+                app:layout_constraintTop_toBottomOf="@id/item_enterprise_text_type" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

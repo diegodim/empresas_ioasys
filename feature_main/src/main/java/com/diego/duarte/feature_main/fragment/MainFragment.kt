@@ -3,16 +3,13 @@ package com.diego.duarte.feature_main.fragment
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import com.diego.duarte.base_feature.core.BaseFragment
 import com.diego.duarte.base_feature.utils.delegateproperties.viewInflateBinding
 import com.diego.duarte.feature_main.databinding.FragmentMainBinding
-import android.widget.EditText
-import androidx.core.content.ContextCompat.getColor
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.diego.duarte.base_feature.RestorableSearchView
 import com.diego.duarte.base_feature.utils.delegateproperties.navDirections
+import com.diego.duarte.base_feature.utils.extensions.clearSearchView
 import com.diego.duarte.base_feature.utils.extensions.setInvisible
 import com.diego.duarte.base_feature.utils.extensions.setVisible
 import com.diego.duarte.base_feature.utils.extensions.setupSearchView
@@ -32,6 +29,7 @@ class MainFragment : BaseFragment() {
 
     private lateinit var enterprisesAdapter: EnterprisesAdapter
 
+    private lateinit var searchViewMenuItem: MenuItem
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,7 +64,7 @@ class MainFragment : BaseFragment() {
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
 
-        val searchViewMenuItem: MenuItem = menu.findItem(R.id.action_search)
+        searchViewMenuItem = menu.findItem(R.id.action_search)
 
         searchViewMenuItem.setupSearchView(
             getString(R.string.content_search_view),
@@ -79,6 +77,7 @@ class MainFragment : BaseFragment() {
                 binding.mainLayoutWelcome.setVisible()
             },
             {
+                //enterprisesAdapter.items.clear()
                 binding.mainLayoutSearchEmpty.setInvisible()
                 binding.mainLayoutWelcome.setInvisible()
             }
@@ -99,7 +98,7 @@ class MainFragment : BaseFragment() {
                     binding.mainLayoutSearchEmpty.setInvisible()
                     binding.mainLayoutWelcome.setInvisible()
 
-                }else{
+                }else if( !viewModel.getCurrentQuery().isNullOrBlank()){
                     binding.mainRecyclerViewEnterprises.setInvisible()
                     binding.mainLayoutWelcome.setInvisible()
                     binding.mainLayoutSearchEmpty.setVisible()
@@ -110,5 +109,10 @@ class MainFragment : BaseFragment() {
         )
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        searchViewMenuItem.clearSearchView()
+        //viewModel.clearState()
+    }
 
 }

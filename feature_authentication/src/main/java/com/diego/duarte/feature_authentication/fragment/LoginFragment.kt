@@ -31,22 +31,22 @@ class LoginFragment : BaseFragment() {
     override fun setupView() {
         super.setupView()
         binding.apply {
-            loginButton.setOnClickListener {
-                editTextEmail.error = ""
-                editTextPassword.error = ""
+            loginButtonEnter.setOnClickListener {
+                loginInputTextEmail.error = ""
+                loginInputTextPassword.error = ""
                 viewModel.login(
-                    editTextEmail.editText?.text.toString(),
-                    editTextPassword.editText?.text.toString()
+                    loginInputTextEmail.editText?.text.toString(),
+                    loginInputTextPassword.editText?.text.toString()
                 )
 
             }
-            editTextEmail.editText?.addTextChangedListener {
-                binding.editTextEmail.error = ""
-                binding.editTextPassword.error = ""
+            loginInputTextEmail.editText?.addTextChangedListener {
+                loginInputTextEmail.error = ""
+                loginInputTextPassword.error = ""
             }
-            editTextPassword.editText?.addTextChangedListener {
-                editTextEmail.error = ""
-                editTextPassword.error = ""
+            loginInputTextPassword.editText?.addTextChangedListener {
+                loginInputTextEmail.error = ""
+                loginInputTextPassword.error = ""
             }
         }
     }
@@ -55,16 +55,16 @@ class LoginFragment : BaseFragment() {
         viewModel.loginViewState.onPostValue(
             lifecycleOwner = owner,
             onLoading = {
-                binding.loginButton.isEnabled = false
+                binding.loginButtonEnter.isEnabled = false
                 onStateLoading()
             },
             onSuccess = {
-                binding.loginButton.isEnabled = true
+                binding.loginButtonEnter.isEnabled = true
                 hideLoading()
                 navigation.navigateToMain()
             },
             onError = {
-                binding.loginButton.isEnabled = true
+                binding.loginButtonEnter.isEnabled = true
                 handleLoginError(it)
             }
         )
@@ -73,8 +73,8 @@ class LoginFragment : BaseFragment() {
 
 
     private fun handleLoginError(throwable: Throwable) {
-        binding.editTextEmail.error = " "
-        binding.editTextPassword.error = throwable.message.toString()
+        binding.loginInputTextEmail.error = " "
+        binding.loginInputTextPassword.error = throwable.message.toString()
         onStateError(throwable)
     }
 

@@ -20,10 +20,10 @@ class EnterprisesAdapter(val clickListener: (enterprise: EnterpriseBinding) -> U
     inner class EnterpriseViewHolder(private val view: View): BaseViewHolder<EnterpriseBinding>(view){
         override fun bind(enterprise: EnterpriseBinding) {
             view.apply {
-                enterprise_image_photo.loadUrl(view.context.getString(R.string.url_image) + enterprise.photo)
-                text_country.text = enterprise.country
-                text_name.text = enterprise.enterpriseName
-                text_type.text = enterprise.enterpriseType.enterpriseTypeName
+                item_enterprise_image_photo.loadUrl(view.context.getString(R.string.url_image) + enterprise.photo)
+                item_enterprise_text_country.text = enterprise.country
+                item_enterprise_text_name.text = enterprise.enterpriseName
+                item_enterprise_text_type.text = enterprise.enterpriseType.enterpriseTypeName
                 card.setOnClickListener { clickListener(enterprise) }
             }
         }

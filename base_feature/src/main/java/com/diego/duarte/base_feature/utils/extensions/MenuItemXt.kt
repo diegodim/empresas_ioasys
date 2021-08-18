@@ -5,8 +5,8 @@ import android.widget.EditText
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat.getColor
 import com.diego.duarte.base_feature.R
-import com.diego.duarte.base_feature.RestorableSearchView
 import com.diego.duarte.base_presentation.utils.extensions.isNull
+import kotlinx.coroutines.*
 
 
 fun MenuItem.setupSearchView(
@@ -16,26 +16,36 @@ fun MenuItem.setupSearchView(
     onMenuCollapsed: () -> Unit,
     onMenuExpanded: () -> Unit) {
 
-    val menuSearchView = actionView as? RestorableSearchView
+    val menuSearchView = actionView as? SearchView
 
     val searchEditText =
         menuSearchView?.findViewById(androidx.appcompat.R.id.search_src_text) as EditText
     searchEditText.setTextColor(getColor(searchEditText.context, R.color.white))
 
     menuSearchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+        private val coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Main)
+        private var searchJob: Job? = null
+
         override fun onQueryTextSubmit(query: String): Boolean {
-            menuSearchView.clearFocus()
+            menuSearchView?.clearFocus()
             return true
         }
 
         override fun onQueryTextChange(query: String): Boolean {
-            onQueryTextChange(query)
+            searchJob?.cancel()
+            searchJob = coroutineScope.launch {
+                query?.let {
+                    delay(500)
+                    onQueryTextChange(it)
+                }
+            }
+
             return true
         }
     })
 
     menuSearchView?.queryHint = hint
-
 
 
     setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
@@ -46,15 +56,20 @@ fun MenuItem.setupSearchView(
 
         override fun onMenuItemActionCollapse(p0: MenuItem?): Boolean {
             onMenuCollapsed()
-            menuSearchView?.setQuery("", false)
             return true
         }
     })
 
     if (!query.isNull()) {
         expandActionView()
+        menuSearchView?.setQuery(query, false)
     }
 
 
-    menuSearchView?.setQuery(query, false)
+
+}
+
+fun MenuItem.clearSearchView(){
+    val menuSearchView = actionView as? SearchView
+    menuSearchView?.setOnQueryTextListener(null)
 }

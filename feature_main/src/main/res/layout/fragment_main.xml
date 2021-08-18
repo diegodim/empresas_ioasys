@@ -76,7 +76,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/main_image_logo"
                     android:layout_width="117.1dp"
                     android:layout_height="wrap_content"
