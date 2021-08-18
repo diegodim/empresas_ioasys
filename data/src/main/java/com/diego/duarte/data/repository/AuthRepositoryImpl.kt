@@ -12,20 +12,18 @@ class AuthRepositoryImpl(private val sessionLocalDataSource: SessionLocalDataSou
                          private val authRemoteDataSource: AuthRemoteDataSource
 ): AuthRepository {
 
-    override fun login(email: String, password: String)
-    = authRemoteDataSource.login(email, password).map {
+    override fun login(email: String, password: String) =
+        authRemoteDataSource.login(email, password).map {
         sessionLocalDataSource.saveToken(it)
     }
 
-    override fun isLogged() = flow{
-        emit(
-            sessionLocalDataSource.getToken().isNullOrBlank()
-        )
+    override fun isLogged() = flow {
+        emit(sessionLocalDataSource.getToken().isNullOrBlank())
     }
 
-    override fun logout(): Flow<Unit> {
-        sessionLocalDataSource.deleteToken()
-        return flow{emit(Unit)}
+    override fun logout(): Flow<Unit> = flow {
+        emit(sessionLocalDataSource.deleteToken())
     }
+
 
 }
