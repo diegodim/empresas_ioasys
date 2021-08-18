@@ -37,6 +37,7 @@ class EnterpriseFragment : BaseFragment() {
                     setSupportActionBar(it)
                     setupActionBarWithNavController(requireView().findNavController())
                 }
+                it.title = navigation.enterprise.enterpriseName
             }
             enterpriseTextDescription.text = navigation.enterprise.description
 
